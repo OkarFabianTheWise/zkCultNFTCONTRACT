@@ -1,38 +1,3 @@
-/*import { Wallet, utils } from "zksync-web3";
-import * as ethers from "ethers";
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
-
-// compile command: npx hardhat compile
-// deploy command: npx hardhat deploy-zksync 
-
-
-// An example of a deploy script that will deploy and call a simple contract.
-export default async function (hre: HardhatRuntimeEnvironment) {
-  console.log(`Running deploy script for the cult staking contract`);
-
-  // Initialize the wallet.
-  const wallet = new Wallet("962ade0e36cfd80711fe663d194c56cc75571925a47e3c8cc378f5eba5b563bb");
-
-// Create deployer object and load the artifact of the contract you want to deploy.
-   const deployer = new Deployer(hre, wallet);
-   const artifact = await deployer.loadArtifact("ZKSHIBA");
-
-  // Estimate contract deployment fee
-  const deploymentFee = await deployer.estimateDeployFee(artifact, []);
-
-  // Deploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
-  const parsedFee = ethers.utils.formatEther(deploymentFee.toString());
-  console.log(`The deployment is estimated to cost ${parsedFee} ETH`);
-
-  const zkContract = await deployer.deploy(artifact, []);
-  console.log(zkContract.interface.encodeDeploy([]))
-  // Show the contract info.
-  const contractAddress = zkContract.address;
-  console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
-}
-*/
-
 import { Wallet, utils } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
@@ -47,7 +12,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   console.log(`Running deploy script for the cult staking pool and factory contract`);
 
   // Initialize the wallet.
-  const wallet = new Wallet("962ade0e36cfd80711fe663d194c56cc75571925a47e3c8cc378f5eba5b563bb");
+  const wallet = new Wallet("seedphrase");
 
 // Create deployer object and load the artifact of the contract you want to deploy.
   const deployer = new Deployer(hre, wallet);
