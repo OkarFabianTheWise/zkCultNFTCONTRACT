@@ -3,7 +3,7 @@ import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 
-// compile command: npx hardhat compile
+//. compile command: npx hardhat compile
 // deploy command: npx hardhat deploy-zksync 
 
 
