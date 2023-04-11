@@ -3,7 +3,7 @@ import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 
-//. compile command: npx hardhat compile
+// compile command: npx hardhat compile
 // deploy command: npx hardhat deploy-zksync 
 
 
@@ -57,14 +57,12 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     _ethAmount
   ]);
 
-  //Deploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
+  //_zkCult, _zkCultAmount, _ethAmountDeploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
   const parsedFee1 = ethers.utils.formatEther(deploymentFee1.toString());
   const parsedFee2 = ethers.utils.formatEther(deploymentFee2.toString());
   console.log(`The pool deployment estimated: ${parsedFee1} ETH`);
   console.log(`The factory deployment estimated: ${parsedFee2} ETH`);
   
-
-
 
   const nftpool = await deployer.deploy(poolArtifact, [
     _nftCollection,
@@ -80,10 +78,10 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     _endTime
   ]);
 
-  const nftfactory = await deployer.deploy(factoryArtifact, [_zkCult,
+  const nftfactory = await deployer.deploy(factoryArtifact, [
+    _zkCult,
     _zkCultAmount,
-    _ethAmount,
-    nftpool.address
+    _ethAmount
   ]);
 
   console.log(nftpool.interface.encodeDeploy([
@@ -99,13 +97,13 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     _poolOwner,
     _endTime
   ]));
-
+  console.log("nftfactory hex")
   console.log(nftfactory.interface.encodeDeploy([
     _zkCult,
     _zkCultAmount,
-    _ethAmount,
-    nftpool.address
+    _ethAmount
   ]));
+
   // Show the contract info.
   const pooladdress = nftpool.address;
   const factoryaddress = nftfactory.address;
