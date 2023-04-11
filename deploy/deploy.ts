@@ -80,9 +80,10 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     _endTime
   ]);
 
-  const nftfactory = await deployer.deploy(factoryArtifact, [nftpool.address,
+  const nftfactory = await deployer.deploy(factoryArtifact, [_zkCult,
     _zkCultAmount,
-    _ethAmount
+    _ethAmount,
+    nftpool.address
   ]);
 
   console.log(nftpool.interface.encodeDeploy([
@@ -102,7 +103,8 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   console.log(nftfactory.interface.encodeDeploy([
     _zkCult,
     _zkCultAmount,
-    _ethAmount
+    _ethAmount,
+    nftpool.address
   ]));
   // Show the contract info.
   const pooladdress = nftpool.address;
